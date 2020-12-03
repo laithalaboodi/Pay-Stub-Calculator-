@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="564.0" prefWidth="926.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employeehours.FXMLDocumentController">
+    <children>
+      <TextField id="firstName" fx:id="firstName" layoutX="181.0" layoutY="38.0" promptText="First Name" />
+      <TextField fx:id="lastName" layoutX="181.0" layoutY="73.0" promptText="Last Name" />
+      <TextField id="hoursWorked " fx:id="hoursWorked" layoutX="181.0" layoutY="111.0" promptText="Hours worked" />
+      <TextField id="payRate" fx:id="payRate" layoutX="181.0" layoutY="147.0" promptText="Pay Rate" />
+      <TextField id="taxRateAZ" fx:id="taxRateAZ" layoutX="181.0" layoutY="182.0" promptText="State Tax Rate" />
+      <TextField id="taxRateFED" fx:id="taxRateFED" layoutX="181.0" layoutY="217.0" promptText="Fed Tax Rate" />
+      <TextField fx:id="ficaE" layoutX="181.0" layoutY="248.0" promptText="FICA-E" />
+      <TextField fx:id="medE" layoutX="181.0" layoutY="281.0" promptText="MED-E" />
+      <TextField fx:id="startDayInput" layoutX="181.0" layoutY="316.0" promptText="MM/DD/YYYY" />
+      <TextField fx:id="endDayInput" layoutX="181.0" layoutY="348.0" promptText="MM/DD/YYYY" />
+        <Button fx:id="button" layoutX="195.0" layoutY="446.0" onAction="#handleButtonAction" text="Calculate" textFill="#723b3b">
+         <font>
+            <Font name="Cambria" size="23.0" />
+         </font></Button>
+      <Text layoutX="24.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hours Worked:">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pay Rate(Hourly):">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="52.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State Tax %:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Label id="totalPay" fx:id="totalPay" layoutX="658.0" layoutY="132.0" text="00.00" />
+      <Text layoutX="494.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Before Tax:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="68.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fed Tax %:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="52.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text layoutX="53.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text layoutX="414.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State Tax/Deduction:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Label fx:id="azTaxDeduction" layoutX="658.0" layoutY="173.0" text="00.00" />
+      <Text layoutX="45.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FICA-E Tax %:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="430.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fed Tax/Deduction:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Label fx:id="fedTaxDeduction" layoutX="658.0" layoutY="205.0" text="00.00" />
+      <Text layoutX="407.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FICA-E Tax/Deduction:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Label fx:id="ficaTaxDeduction" layoutX="658.0" layoutY="249.0" text="00.00" />
+      <Text layoutX="492.0" layoutY="411.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This Check:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Label fx:id="afterTax" layoutX="658.0" layoutY="396.0" text="00.00" />
+      <Text layoutX="45.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MED-E Tax %:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="407.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MED-E Tax/Deduction:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Label fx:id="medTaxDeduction" layoutX="658.0" layoutY="284.0" text="00.00" />
+      <Text layoutX="445.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Period Beginning:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="470.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Period Ending:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Label fx:id="startDay" layoutX="659.0" layoutY="319.0" text="MM/DD/YYYY" />
+      <Label fx:id="endDay" layoutX="659.0" layoutY="350.0" text="MM/DD/YYYY" />
+      <Text layoutX="16.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Period Beginning:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="42.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Period Ending:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Button fx:id="print" layoutX="632.0" layoutY="446.0" mnemonicParsing="false" onAction="#printingMethod" text="Print" textFill="#723b3b">
+         <font>
+            <Font name="Cambria" size="23.0" />
+         </font></Button>
+      <Text layoutX="491.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="493.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Label fx:id="firstNameLabel" layoutX="659.0" layoutY="42.0" text="First Name" />
+      <Label fx:id="lastNameLabel" layoutX="658.0" layoutY="88.0" text="Last Name" />
+    </children>
+</AnchorPane>
